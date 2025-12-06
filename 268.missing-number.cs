@@ -5,6 +5,7 @@
  */
 
 // @lc code=start
+
 public class Solution {
     public int MissingNumber(int[] nums) {
         System.Array.Sort(nums);

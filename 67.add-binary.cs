@@ -7,23 +7,37 @@
 // @lc code=start
 public class Solution {
     public string AddBinary(string a, string b) {
-        int aLength = a.Length;
-        int bLength = b.Length;
+        string result = "";
+        
+        int i = a.Length - 1;
+        int j = b.Length - 1;
         
         int carry = 0;
-        if (aLength < bLength)
-        {
-            while (aLength>=0)
-            {
-                
-                
+
+        while (i >= 0 || j >= 0 || carry > 0) {
+            
+            int digitA = 0;
+            if (i >= 0) {
+                digitA = a[i] - '0'; 
+                i--;
             }
+
+            int digitB = 0;
+            if (j >= 0) {
+                digitB = b[j] - '0';
+                j--;
+            }
+
+            int currentSum = digitA + digitB + carry;
+
+            int bit = currentSum % 2;
             
+            result = bit + result;
+
+            carry = currentSum / 2;
         }
-        while (bLength >= 0)
-        {
-            
-        }
+
+        return result == "" ? "0" : result;
     }
 }
 // @lc code=end
